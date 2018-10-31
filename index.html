@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="ElTiempo.css">
+
+
+</head>
+
+<body>
+    <div class="container" id="app">
+        <div class="topnav">
+            <div class="grid">
+            <h2>El Tiempo en tu Ciudad</h2>
+            <div class="decorationback">
+                <div class="search-container">
+
+                 <input 
+ @change="getData" type="text" placeholder="Introduce tu Ciudad" name="search" v-model="city">
+                    <button @click="getData">BUSCA</button>
+
+                </div>
+            </div>
+            <div class="decoration">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Ciudad</th>
+                            <th>Temperatura</th>
+                            <th>Mínima</th>
+                            <th>Máxima</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-if="place && city">
+                            <td class="size">{{place}}</td>
+                            <td class="size">{{temperature}}º</td>
+
+
+                            <td class="size">{{mintemp}}º</td>
+                            <td class="size">{{maxtemp }}º</td>
+
+                        </tr>
+                        
+                     
+
+                    </tbody>
+
+                </table>
+                </div>         
+       
+             <div class="result">
+                <div  class="rain" v-if="place && city && sky== 'Rain'">
+                   <img src="rainy.jpg">
+                </div>
+                <div  class="clear" v-if="place && city && sky == 'Clear'">
+                   <img src="sunny.jpg">
+                </div>
+                <div  class="clouds" v-if=" place && city && sky == 'Clouds'">
+                  <img src="cloud.jpg">
+                </div>
+                </div>
+               
+              </div>   
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="City.js">
+    </script>
+</body>
