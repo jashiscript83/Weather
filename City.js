@@ -7,7 +7,7 @@ var app = new Vue({
         place: "",
         maxtemp: "",
         mintemp: "",
-        sky:"",
+        sky: "",
     },
     created: function () {
 
@@ -38,7 +38,7 @@ var app = new Vue({
 
                 app.maxtemp = Math.round(app.maxtemp)
                 app.mintemp = Math.round(app.mintemp)
-                app.sky=app.weather.weather[0.].main
+                app.sky = app.weather.weather[0.].main
 
 
 
@@ -48,6 +48,6 @@ var app = new Vue({
 
 
         },
-        
+
     }
 })

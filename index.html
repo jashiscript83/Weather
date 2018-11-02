@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <!DOCTYPE html>
@@ -19,58 +18,57 @@
     <div class="container" id="app">
         <div class="topnav">
             <div class="grid">
-            <h2>El Tiempo en tu Ciudad</h2>
-            <div class="decorationback">
-                <div class="search-container">
+                <h2>El Tiempo en tu Ciudad</h2>
+                <div class="decorationback">
+                    <div class="search-container">
 
-                 <input 
- @change="getData" type="text" placeholder="Introduce tu Ciudad" name="search" v-model="city">
-                    <button @click="getData">BUSCA</button>
+                        <input @change="getData" type="text" placeholder="Introduce tu Ciudad" name="search" v-model="city">
+                        <button @click="getData">BUSCA</button>
 
+                    </div>
                 </div>
+                <div class="decoration">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Ciudad</th>
+                                <th>Temperatura</th>
+                                <th>Mínima</th>
+                                <th>Máxima</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-if="place && city">
+                                <td class="size">{{place}}</td>
+                                <td class="size">{{temperature}}º</td>
+
+
+                                <td class="size">{{mintemp}}º</td>
+                                <td class="size">{{maxtemp }}º</td>
+
+                            </tr>
+
+
+
+                        </tbody>
+
+                    </table>
+                </div>
+
+            
+                 
+                        <img class="rain" v-if="place && city && sky== 'Rain'" src="rainy.jpg">
+                
+                
+                        <img class="clear" v-if="place && city && sky == 'Clear'" src="sunny.jpg">
+                
+                  
+                        <img class="clouds" v-if=" place && city && sky == 'Clouds'"class="clouds" v-if=" place && city && sky == 'Clouds'" src="cloud.jpg">
+                 
+             
+
             </div>
-            <div class="decoration">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Ciudad</th>
-                            <th>Temperatura</th>
-                            <th>Mínima</th>
-                            <th>Máxima</th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr v-if="place && city">
-                            <td class="size">{{place}}</td>
-                            <td class="size">{{temperature}}º</td>
-
-
-                            <td class="size">{{mintemp}}º</td>
-                            <td class="size">{{maxtemp }}º</td>
-
-                        </tr>
-                        
-                     
-
-                    </tbody>
-
-                </table>
-                </div>         
-       
-             <div class="result">
-                <div  class="rain" v-if="place && city && sky== 'Rain'">
-                   <img src="rainy.jpg">
-                </div>
-                <div  class="clear" v-if="place && city && sky == 'Clear'">
-                   <img src="sunny.jpg">
-                </div>
-                <div  class="clouds" v-if=" place && city && sky == 'Clouds'">
-                  <img src="cloud.jpg">
-                </div>
-                </div>
-               
-              </div>   
         </div>
     </div>
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
