@@ -35,6 +35,7 @@
                                 <th>Temperatura</th>
                                 <th>Mínima</th>
                                 <th>Máxima</th>
+                                <th>Humedad</th>
 
                             </tr>
                         </thead>
@@ -46,6 +47,7 @@
 
                                 <td class="size">{{mintemp}}º</td>
                                 <td class="size">{{maxtemp }}º</td>
+                                <td class="size">{{humidity}}%</td>
 
                             </tr>
 
@@ -56,17 +58,17 @@
                     </table>
                 </div>
 
-            
-                 
-                        <img class="rain" v-if="place && city && sky== 'Rain'" src="rainy.jpg">
-                
-                
-                        <img class="clear" v-if="place && city && sky == 'Clear'" src="sunny.jpg">
-                
-                  
-                        <img class="clouds" v-if=" place && city && sky == 'Clouds'"class="clouds" v-if=" place && city && sky == 'Clouds'" src="cloud.jpg">
-                 
-             
+
+
+                <img class="rain" v-if="place && city && sky== 'Rain'" src="rainy.jpg">
+
+
+                <img class="clear" v-if="place && city && sky == 'Clear'" src="sunny.jpg">
+
+
+                <img class="clouds" v-if=" place && city && sky == 'Clouds'" class="clouds" v-if=" place && city && sky == 'Clouds'" src="cloud.jpg">
+
+
 
             </div>
         </div>

@@ -8,6 +8,7 @@ var app = new Vue({
         maxtemp: "",
         mintemp: "",
         sky: "",
+        humidity:"",
     },
     created: function () {
 
@@ -16,7 +17,7 @@ var app = new Vue({
     methods: {
 
         getData: function () {
-            fetch("https:/api.openweathermap.org/data/2.5/weather?q=" + this.city + "&APPID=e9e1c563afe4db3846c183d1924911dd", {
+            fetch("https://api.openweathermap.org/data/2.5/weather?q=" + this.city + "&APPID=e9e1c563afe4db3846c183d1924911dd", {
                 method: "GET"
 
             }).then(function (response) {
@@ -35,7 +36,7 @@ var app = new Vue({
                 app.temperature = Math.round(app.temperature)
                 app.maxtemp = app.weather.main.temp_max - 273, 15
                 app.mintemp = app.weather.main.temp_min - 273, 15
-
+                app.humidity = app.weather.main.humidity
                 app.maxtemp = Math.round(app.maxtemp)
                 app.mintemp = Math.round(app.mintemp)
                 app.sky = app.weather.weather[0.].main
